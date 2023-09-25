@@ -1,0 +1,11 @@
+[Unit]
+Description=Apply security updates on fedora system boot
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/dnf update --security -y >> /home/ayildirim/.security.log
+Type=simple
+
+[Install]
+WantedBy=default.target
+RequiredBy=network.target
