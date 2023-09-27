@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "permit setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} $USER" > /etc/doas.conf
+echo "permit nopass $USER as root cmd /usr/bin/dnf args update --security --assumeyes" > /etc/doas.conf
+echo "permit nopass $USER as root cmd /usr/bin/dnf args update --assumeyes" > /etc/doas.conf
 echo "Copy startupsecurityupdate.service to systemd"
 sudo cp -v startupsecupdate.service /etc/systemd/system/
 echo "Copy systemupdate service and timer to systemd"
